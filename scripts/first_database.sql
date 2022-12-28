@@ -79,6 +79,9 @@ SELECT * FROM peopleoptimized;
 
 DROP TABLE IF EXISTS peopleoptimized;
 
+/*----------------------------------------------------------------*/
+/*RELACIONAL MODEL - one to one, one to many, many to one - + JOIN*/
+
 DROP TABLE IF EXISTS courses;
 CREATE TABLE IF NOT EXISTS courses(
 	cId int not null auto_increment,
@@ -113,10 +116,34 @@ SELECT p.pname, c.cCourse
 FROM peopleoptimized AS p LEFT OUTER JOIN courses AS c
 ON c.cId = p.favouriteCourse;
 
+/*----------------------------------------*/
+/*RELACIONAL MODEL - many to many - + JOIN*/
+DROP TABLE IF EXISTS p_watch_c;
+CREATE TABLE IF NOT EXISTS p_watch_c(
+	wId int not null auto_increment,
+   wPeople int,
+   wCourse int,
+   PRIMARY KEY (wId),
+   FOREIGN KEY (wPeople) REFERENCES peopleoptimized (pid),
+   FOREIGN KEY (wCourse) REFERENCES courses (cId)
+)engine = InnoDB default charset = utf8;
+
+SELECT * FROM peopleoptimized;
+SELECT * FROM courses;
+SELECT * FROM p_watch_c;
+
+INSERT INTO p_watch_c values
+(DEFAULT, '1', '1');
+
+SELECT p.pname, c.cCourse FROM peopleoptimized AS p
+JOIN p_watch_c AS w
+ON p.pid = w.wPeople
+JOIN courses AS c
+ON c.cId = w.wCourse;
+
 CREATE TABLE drop_table(
 	aletorio1 char,
    aletorio2 tinyint
 );
-DROP TABLE drop_table;
 
 SELECT * FROM people;

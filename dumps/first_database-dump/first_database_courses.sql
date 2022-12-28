@@ -18,34 +18,27 @@ USE `first_database`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `peopleoptimized`
+-- Table structure for table `courses`
 --
 
-DROP TABLE IF EXISTS `peopleoptimized`;
+DROP TABLE IF EXISTS `courses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `peopleoptimized` (
-  `pid` int(11) NOT NULL AUTO_INCREMENT,
-  `pname` varchar(30) NOT NULL,
-  `pborn` date NOT NULL,
-  `pgender` enum('M','F','Other') NOT NULL,
-  `pweight` decimal(5,2) NOT NULL,
-  `pheight` decimal(3,2) NOT NULL,
-  `pnacionality` varchar(20) NOT NULL DEFAULT 'Brasil',
-  `favouriteCourse` int(11) DEFAULT NULL,
-  PRIMARY KEY (`pid`),
-  KEY `favouriteCourse` (`favouriteCourse`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+CREATE TABLE `courses` (
+  `cId` int(11) NOT NULL AUTO_INCREMENT,
+  `cCourse` varchar(40) NOT NULL,
+  PRIMARY KEY (`cId`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `peopleoptimized`
+-- Dumping data for table `courses`
 --
 
-LOCK TABLES `peopleoptimized` WRITE;
-/*!40000 ALTER TABLE `peopleoptimized` DISABLE KEYS */;
-INSERT INTO `peopleoptimized` VALUES (1,'Rodrigson','1966-03-03','Other',89.30,1.80,'Brasil',1),(2,'Ketlyn','2001-07-03','F',67.20,1.68,'Reino Unido',2),(3,'Leôncio','2000-08-19','M',78.50,1.76,'Suíça',3),(4,'Niggaaa','1990-12-20','M',92.80,1.90,'Nigéria',4),(5,'Kowalski','1986-05-11','M',90.70,1.85,'Madagascar',2),(6,'Hilda','1942-07-05','F',55.10,1.56,'Canadá',3),(7,'Hermston','1978-12-23','M',69.20,1.70,'Finlândia',1),(8,'Muchacha','1996-04-12','F',72.60,1.78,'Porto Rico',4),(9,'Bjorn','1995-09-07','M',77.40,1.81,'Noruega',3),(10,'Pablito','1975-02-27','Other',85.00,1.82,'Colômbia',NULL);
-/*!40000 ALTER TABLE `peopleoptimized` ENABLE KEYS */;
+LOCK TABLES `courses` WRITE;
+/*!40000 ALTER TABLE `courses` DISABLE KEYS */;
+INSERT INTO `courses` VALUES (1,'Sex'),(2,'Drugs'),(3,'Money'),(4,'Rock n\' Roll');
+/*!40000 ALTER TABLE `courses` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -57,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-26 22:13:43
+-- Dump completed on 2022-12-27 21:59:48
