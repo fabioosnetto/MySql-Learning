@@ -135,6 +135,10 @@ SELECT * FROM p_watch_c;
 INSERT INTO p_watch_c values
 (DEFAULT, '1', '1');
 
+/*------ UPDATE ------*/
+UPDATE p_watch_c SET wPeople='1' WHERE wCourse='3';
+/*------ UPDATE ------*/
+
 SELECT p.pname, c.cCourse FROM peopleoptimized AS p
 JOIN p_watch_c AS w
 ON p.pid = w.wPeople
